@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React, {useState} from "react";
 import './App.css';
-
+import ColorPicker from "./component/ColorPicker";
+import SizePicker from "./component/SizePicker";
+import ButtonReset from "./component/ButtonReset";
+import ShowYourChoose from "./component/ShowYourChoose";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [color,setColor]=useState("red");
+    const outputColor=(cl)=>{
+        setColor(cl);
+    }
+    return (
+        <div className={"container"}>
+            <div className={"row"}>
+                <ColorPicker color={color} OuputColor={outputColor}/>
+                <SizePicker/>
+                <ButtonReset/>
+                <ShowYourChoose color={color}/>
+            </div>
+        </div>
+    )
 }
-
 export default App;
